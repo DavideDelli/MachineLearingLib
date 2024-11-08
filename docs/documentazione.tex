@@ -1,0 +1,91 @@
+\documentclass[a4paper,12pt]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{hyperref}
+
+\title{Documentazione degli Algoritmi di Machine Learning Implementati}
+\author{Davide [Cognome]}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\chapter*{Introduzione}
+\addcontentsline{toc}{chapter}{Introduzione}
+Questa documentazione descrive l'implementazione di una libreria di base per algoritmi di machine learning, creata per dimostrare conoscenze in algoritmi supervisionati e non supervisionati. Vengono inclusi esempi pratici per ogni algoritmo e dettagli sulla loro implementazione.
+
+\chapter{Regressione Lineare}
+\section{Descrizione}
+La regressione lineare è un modello statistico che cerca di predire il valore di una variabile dipendente \( y \) in base a una o più variabili indipendenti \( X \).
+
+\section{Funzione di Costo}
+La funzione di costo \( J(\theta) \) misura la differenza tra le predizioni del modello e i valori reali. Nella regressione lineare, la funzione di costo utilizzata è il \textit{Mean Squared Error} (MSE):
+\[
+J(\theta) = \frac{1}{2m} \sum_{i=1}^{m} (h(x^{(i)}) - y^{(i)})^2
+\]
+dove \( h(x) = \theta_0 + \theta_1 x \).
+
+\section{Algoritmo di Gradient Descent}
+Per minimizzare la funzione di costo, si utilizza il metodo di \textit{Gradient Descent}:
+\[
+\theta_j := \theta_j - \alpha \frac{\partial}{\partial \theta_j} J(\theta)
+\]
+dove \( \alpha \) è il tasso di apprendimento.
+
+\chapter{K-Nearest Neighbors (KNN)}
+\section{Descrizione}
+K-Nearest Neighbors (KNN) è un algoritmo supervisionato che classifica un dato punto in base alle classi dei suoi \( k \) vicini più prossimi.
+
+\section{Calcolo della Distanza}
+Una comune misura di distanza è la distanza euclidea:
+\[
+d(x, x') = \sqrt{\sum_{i=1}^n (x_i - x'_i)^2}
+\]
+
+\chapter{Albero di Decisione}
+\section{Descrizione}
+Gli alberi di decisione sono modelli supervisionati che dividono i dati in base ad attributi che massimizzano l'informazione (es., usando l’entropia o l’indice di Gini).
+
+\section{Calcolo dell'Entropia}
+L'entropia misura il grado di disordine di un set:
+\[
+H(S) = - \sum_{i=1}^{c} p_i \log_2(p_i)
+\]
+
+\chapter{Regressione Logistica}
+\section{Descrizione}
+La regressione logistica è un algoritmo supervisionato usato per la classificazione, in cui si predice la probabilità che un esempio appartenga a una certa classe.
+
+\section{Funzione Sigmoid}
+La funzione di attivazione sigmoid è usata per ottenere un valore di probabilità:
+\[
+h(x) = \frac{1}{1 + e^{-\theta^T x}}
+\]
+
+\chapter{Support Vector Machine (SVM)}
+\section{Descrizione}
+La Support Vector Machine (SVM) cerca di trovare un iperpiano ottimale che separi le classi, massimizzando il margine tra i dati.
+
+\chapter{K-means Clustering}
+\section{Descrizione}
+K-means è un algoritmo non supervisionato che raggruppa i dati in \( k \) cluster, minimizzando la distanza dei punti dai centroidi.
+
+\section{Aggiornamento dei Centroidi}
+Ad ogni iterazione, i centroidi vengono aggiornati calcolando la media dei punti in ciascun cluster.
+
+\chapter{PCA (Principal Component Analysis)}
+\section{Descrizione}
+L'Analisi delle Componenti Principali (PCA) è un algoritmo non supervisionato per la riduzione della dimensionalità, che cerca di massimizzare la varianza proiettando i dati lungo gli assi principali.
+
+\section{Calcolo della Matrice di Covarianza}
+Per trovare i componenti principali, si calcola la matrice di covarianza:
+\[
+\text{Cov}(X) = \frac{1}{m} \sum_{i=1}^{m} (X^{(i)} - \bar{X})(X^{(i)} - \bar{X})^T
+\]
+
+\end{document}
